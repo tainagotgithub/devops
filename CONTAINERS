@@ -1,0 +1,12 @@
+.txt
+
+DOCKER - faz a auto implantação de aplicativos dentro de containers; pega a máquina virtual, fatia em pedaços menores, onde você vai compartilhar o kernel, mas com pedaços menores de memória, disco e CPU. essa fatia menor é o container. roda aplicações. voltado para microsserviços, onde o container é projetado para morrer.
+  *fornece uma camada individual de abstração de automação virtual no nível do sistema operacional. utiliza cgroups e namespaces (Linux); sistema de arquivos union mounting, padrão OverlayFS
+  *roda apenas a aplicação; seus dados importantes ficam para fora do container. sendo assim, o container descatável (destruir o container e descartá-lo sem ameaçar a integridade da instalaçaõ da aplicação/serviço)
+  *teve algum problema físico em um dos nós (k8)? os pods tirados do cluster serão criados em outras máquinas do cluster. mesmo tendo perda de recusrso do sistema, o serviço continuará online
+Container virtualiza sistema operacional, vai ter vários sistemas operacioais em cima dele,e a VM virtualiza o hardware
+  VM: camada de infra; host do S.O.; hypevisor -> começa a criar suas VMs 
+  CONTAINER: infra; S.O; docker engine -> constrói e roda containers
+
+RANCHER - contém conjunto de softwares para gerenciamento e orquestração de containers via web
+  rede, armazenamento, volumes, balanceador de carga e DNS

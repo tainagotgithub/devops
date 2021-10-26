@@ -10,3 +10,6 @@ Container virtualiza sistema operacional, vai ter vários sistemas operacioais e
 
 RANCHER - contém conjunto de softwares para gerenciamento e orquestração de containers via web
   rede, armazenamento, volumes, balanceador de carga e DNS
+  camada de serviços que facilitam o gerenciamento dos clusters
+  
+KUBERNETES - gerenciamento de containers nivel enterprise; nuvem publica/privada/hibrida; desenho modular

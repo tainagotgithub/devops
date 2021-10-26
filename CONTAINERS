@@ -17,4 +17,12 @@ KUBERNETES - gerenciamento de containers nivel enterprise; nuvem publica/privada
  K. master -> API Server; Scheduler; Controller; etcd
  cada nó do cluster roda -> container runtime, Docker/Rocket, com os agentes para se comunicar com o master
                          -> componentes adicionais para logs, monitoramento, service discovery e add-ons opcionais
- NÓ SÃO OS TRABALHADORES DO CLUSTER. EXPÕE OS SERVIÇOS DE COMPUTAÇÃO, REDE E ARMAZENAMENTO PARA AS APLICAÇÕES. ou seja, gerencia os recursos do cluster, conecta ao kubernetes e diz "aqui eu posso rodar container e tenho tanto de memória, tanto de cpu e tanto de disco"
+ NÓS SÃO OS TRABALHADORES DO CLUSTER. EXPÕE OS SERVIÇOS DE COMPUTAÇÃO, REDE E ARMAZENAMENTO PARA AS APLICAÇÕES. ou seja, gerencia os recursos do cluster, conecta ao kubernetes e diz "aqui eu posso rodar container e tenho tanto de memória, tanto de cpu e tanto de disco"
+ O QUE PODEMOS FAZER: 
+  componentes do kubernetes que usamos em nossas aplicações: pods - componentes mais básicos, os containers; services - pods que trabalham em conjunto, onde comunicamos as coisas; deployments - declaração para pods e replicasets; labels - organiza serviços; deamonsets - rodar sempre um ou mais pods por nó; secrets - salvar dados, como senhas; configmaps - arquivo de configuração que a aplicação irá usar; cron jobs - executar containers ou pods com uma certa frequencia
+  deployment de containers e controle de Rollout - deployment: descreva seu container e quantos vc quer. o kubernetes irá manter esses containers rodando e irá gerenciar as mudanças no deployment com um ROLLOUT. você pode pausar, resumir e fazer o rollback das alterações.
+  empacotamento de recursos - você pode declarar um mínimo e um máximode recursos (CPU e memória) para seus containers. o kubernetes vai alocar seus containers onde eles puderem caber. eficiencia e dminuição de custos.
+  service discovery e autoscaling - o k8 atualiza os dns dos containers que morrem e são recriados em outros lugares, então a gente consegue chegar nessa aplicação. 
+  cluster heterogeneo - o k8 roda em qualquer lugar 
+  armazenamento persistente - conectado a AWS EBS, GCP, etc
+  HA - escalável

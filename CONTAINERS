@@ -13,3 +13,8 @@ RANCHER - contém conjunto de softwares para gerenciamento e orquestração de c
   camada de serviços que facilitam o gerenciamento dos clusters
   
 KUBERNETES - gerenciamento de containers nivel enterprise; nuvem publica/privada/hibrida; desenho modular
+ um cluster consiste de - um master (responsável pela API, agendamento dos deploys e gerenciamento total do cluster) e múltiplos nodes de computação
+ K. master -> API Server; Scheduler; Controller; etcd
+ cada nó do cluster roda -> container runtime, Docker/Rocket, com os agentes para se comunicar com o master
+                         -> componentes adicionais para logs, monitoramento, service discovery e add-ons opcionais
+ NÓ SÃO OS TRABALHADORES DO CLUSTER. EXPÕE OS SERVIÇOS DE COMPUTAÇÃO, REDE E ARMAZENAMENTO PARA AS APLICAÇÕES. ou seja, gerencia os recursos do cluster, conecta ao kubernetes e diz "aqui eu posso rodar container e tenho tanto de memória, tanto de cpu e tanto de disco"

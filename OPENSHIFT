@@ -1,0 +1,12 @@
+Openshift Origin - projeto de código aberto origina, dá origem aos outros modelos
+Openshift Online - versão hospedada publicamente da RedHat, para desenvolvimento e hospedagem de aplicativos
+Openshift Dedicated - cluster privado gerenciado em plataformas em nuvem cmo AWS, Azure, Openshift Enterprise
+Openshift Enterprise - Paas prvada do OCP
+
+ORIGIN
+  baseado nos containers do docker e no gerenciador de cluster do K8S, com ferramentas adicionais centradas nos desenvolvedores e nas operações que permitem a implantação rápida do desenvolvimento de aplicativos e gerenciamento do ciclo
+DOCKER - imagens reutilizaveis. permite criar uma imagem do nosso aplicativo com todas as pendencias necessárias pré-empacotadas em imagens que podem ser implantadas em qualquer ambiente.
+KUBERNETES - potencializa a implantação e o gerenciamento dessas imagens Docker em grandes clusters, com recursos de autocorrenção e dimensionamento automatico
+OPENSHIFT - se baseia nas duas acima, fornecendo ferramentas que abstraem as tarefas de gerenciamento de infra e k8s subjacentes, para ajudar a implantar e gerenciar suas aplcações (orquestração/rancher)
+
+O Openshift é centrado na API e possui um conjunto de APIs que nos ajuda a integrar o OCP a nossa infraestrutura existente

@@ -4,6 +4,7 @@ DOCKER - faz a auto implantação de aplicativos dentro de containers; pega a m�
   *fornece uma camada individual de abstração de automação virtual no nível do sistema operacional. utiliza cgroups e namespaces (Linux); sistema de arquivos union mounting, padrão OverlayFS
   *roda apenas a aplicação; seus dados importantes ficam para fora do container. sendo assim, o container descatável (destruir o container e descartá-lo sem ameaçar a integridade da instalaçaõ da aplicação/serviço)
   *teve algum problema físico em um dos nós (k8)? os pods tirados do cluster serão criados em outras máquinas do cluster. mesmo tendo perda de recusrso do sistema, o serviço continuará online
+Containers Docker compartilham o mesmo Kernel subjacente. Se temos um sistema de Ubunto com o Docker instalado, o Docker pode rodar qualquer tipo de SO em cima dele, desde que seja baseado no mesmo Kernel, que no caso é Linux. Se o container tem um kernel Windows, você não consiguira rodá-lo, você precisaria de Docker em um Windows.
 Container virtualiza sistema operacional, vai ter vários sistemas operacioais em cima dele,e a VM virtualiza o hardware
   VM: camada de infra; host do S.O.; hypevisor -> começa a criar suas VMs 
   CONTAINER: infra; S.O; docker engine -> constrói e roda containers

@@ -27,3 +27,7 @@ KUBERNETES - gerenciamento de containers nivel enterprise; nuvem publica/privada
   cluster heterogeneo - o k8 roda em qualquer lugar 
   armazenamento persistente - conectado a AWS EBS, GCP, etc
   HA - escalável
+
+ORQUESTRAÇÃO DE CONTAINER
+ Todo esse processo de implantação e gerenciamento automáticos de contêineres é conhecido como Orquestração de Contêiner. O Kubernetes é, portanto, uma tecnologia de Orquestração de Contêiner. A plataforma precisa orquestrar a conectividade entre os contêineres e aumentar ou diminuir a escala automaticamente com base na carga.
+ 

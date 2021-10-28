@@ -9,4 +9,12 @@ DOCKER - imagens reutilizaveis. permite criar uma imagem do nosso aplicativo com
 KUBERNETES - potencializa a implantação e o gerenciamento dessas imagens Docker em grandes clusters, com recursos de autocorrenção e dimensionamento automatico
 OPENSHIFT - se baseia nas duas acima, fornecendo ferramentas que abstraem as tarefas de gerenciamento de infra e k8s subjacentes, para ajudar a implantar e gerenciar suas aplcações (orquestração/rancher)
 
-O Openshift é centrado na API e possui um conjunto de APIs que nos ajuda a integrar o OCP a nossa infraestrutura existente
+O Openshift é centrado na API e possui um conjunto de APIs que nos ajuda a integrar o OCP a nossa infraestrutura existente.
+
+ARQUITETURA
+Componentes: aproveita o Kubernetes como principal componente de infraestrutura; 
+  Imagens: o openshift pode extrair elas do docker hub, ou pode usar o Regestry que acompanha o Openshift Origin
+  POD: um ou mais containers; multiplos pods formam um deployment
+  Utilizamos serviços para expor os deployments a outros aplicativos ou mundo externo
+  No coração do OCP tá o armazenamento de valores de chave etcd, que armazena informações sobe vários componentes.
+  o cluster Kubernetes subjacente está configurado com vários nós onde as imagens reais do Docker estão hospedadas. Esses npis são gerenciadas por um ou mais master nodes que hospedam o servidor da API, o etcd e o scheduller

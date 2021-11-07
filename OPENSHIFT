@@ -18,3 +18,8 @@ Componentes: aproveita o Kubernetes como principal componente de infraestrutura;
   Utilizamos serviços para expor os deployments a outros aplicativos ou mundo externo
   No coração do OCP tá o armazenamento de valores de chave etcd, que armazena informações sobe vários componentes.
   o cluster Kubernetes subjacente está configurado com vários nós onde as imagens reais do Docker estão hospedadas. Esses npis são gerenciadas por um ou mais master nodes que hospedam o servidor da API, o etcd e o scheduller
+
+TRÊS MANEIRAS DE INTERAGIR COM O OPENSHIFT CLUSTER
+  Console da web - maneira mais direta e fácil; acessível na porta 8443, no endereço de IP público do cluster
+  CLI - linha de comando usando a ferramenta de cliente; oc tool; pode ser baixada no site da Openshift
+  API REST - permite a integração com aplicativos de terceiros

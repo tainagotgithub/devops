@@ -23,3 +23,8 @@ TRÊS MANEIRAS DE INTERAGIR COM O OPENSHIFT CLUSTER
   Console da web - maneira mais direta e fácil; acessível na porta 8443, no endereço de IP público do cluster
   CLI - linha de comando usando a ferramenta de cliente; oc tool; pode ser baixada no site da Openshift
   API REST - permite a integração com aplicativos de terceiros
+
+
+Projetos: permite que os usuários organizem e gerenciem seu conteudo no ambiente openshift; ajuda as equipes a isolarem seu trabalho de outras equieps que usam a mesma infraestrutura. São criados sobre as construções do kubernetes, os namespaces, usando ele é criado automaticamente um namespace de sua escolha para os objetos que você cria. cria o namespace e não se preocupa com o que tem abaixo.
+Usuário: usuário comum (usuários que desenvolvem e implementam aplicações; developer); usuário do sistema (para interagir com a infraestrutura; system:admin); contas de serviço (permite a comunicação entre vários serviços; systemserviceaccount:proj1; inclui serviço de OAuth Server, responsavel por autorizar e autenticar usuários no cluster)
+

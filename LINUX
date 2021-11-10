@@ -1,0 +1,17 @@
+ESTRUTURA DE DIRETÓRIOS
+Para saber onde encontrar informações, saber para que serve cada dir
+Também conhecido como FHS (file system hierarchy), é a estrutura de diretório padrão
+
+Windows -> c: - pasta windows, pasta system32, pasta de arquivos e programas, tudo fica aglomerado aqui -> Office - pasta pacote office, .exe/pastas/
+LINUX -> partir do principio que ele compartilha bibliotecas, no windows tem cada biblioteca isolada. 
+Diretório central -> root (/), tudo do sistema tá dentro do root; 
+/bin/ -> executável (binário); /boot/ -> iniciar o sistema, aqui fica os arquivos necessários para o boot; 
+/dev/ -> device/dispositivo, temos uma abstração em objeto de cada dispositivo do sistema, hardware; 
+/etc/ -> configurações; /home/ -> arquivos de usuário, dowloads, imagens etc; 
+/lib/ -> bibliotecas, arquivos .so; /media/ -> diretório de montagem (arquivo de pendrive montado aqui); 
+/mnt/ -> montagem de arquivo TEMPORÁRIA; /opt/ -> optional, geralmente para instalar pacotes externos; 
+/root/ -> home do root; /sbin/ ->  binários do sistema; executáveis para recuperar o sistema, somente o root pode usar; 
+/srv/ -> diretório para serviços; 
+/tmp/ -> arquivos temporários; 
+/usr/ -> abstrações bin, include, lib, sbin, só para o usuário específico; 
+/var/ -> variáveis, tem cache (pacotes baixados mas não instalados), log (os logs), spool (fila para processamento), tmp

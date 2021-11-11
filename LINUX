@@ -15,3 +15,24 @@ Diretório central -> root (/), tudo do sistema tá dentro do root;
 /tmp/ -> arquivos temporários; 
 /usr/ -> abstrações bin, include, lib, sbin, só para o usuário específico; 
 /var/ -> variáveis, tem cache (pacotes baixados mas não instalados), log (os logs), spool (fila para processamento), tmp
+
+BOOT 
+power -> energizaçãoo -> post -> testa o hardware para ver se há algum problema -> bios -> verificar a ordem de boot, qual dispositivo ela deve iniciar -> MBR (tabela de partição do disco, usa bios antiga) ou EFI (nova forma de uso, a bios mudou de nome para a EFI) -> Grub: terminou de carregar a bios, ele seleciona o disco, que contém o boot loader, o Grub, a telinha em que a gente seleciona qual sistema a gente quer bootar -> Kernel: o coração do sistema, chama o Initrd -> Initrd: mantém alguns drivers e coisas que são necessárias de estarem em memória antes do kernel bootar -> Init: primeiro processo do sistema, atualmente é o systemd; quer dizer que a gente vai chamar todos os outros processos;
+power: botão de ligar, todos os componentes vão ser energizados;
+post: power on self test, testa todos os componentes por algum problema de hardware
+bios: carrega o firmware que está na CMOS (o ship que mantém a bios lá dentro e que não perca suas configs) da placa mãe, contém ordem de boot, infos de hardware etc; vai pegar o primeiro dispositivo da ordem de boot e iniciar ele
+MBR: master boot record, os primeiros 512 bytes do disco; armazena o bootloader (446 bytes, o grub estava aqui, deixava pesado, era necessario um bootloadre menor que apontava para o maior instalado no sistema)
+UEFI: melhorou parte de segurança, desempenho do boot; trabaçha direto com a partição; é criado uma partição, o ESP (EFI system partition), direto no disco, formata em fat32 e aqui estão os arquivos de boot, no formato .efi; bootloader aqui dentro, podendo ter diversos compactados dentro de diversos arquivos .efi; no final, vai carregar um grub
+bootloader/grub: escolhe qual sistema vc quer bootar, inicia o carregamento do kernel do sistema
+kernel: arquivo compactado dentro do /boot, geralmente chamado vmlinuz; ainda não pode descompactar pq precisa dos drivers antes, ai entra o initrd
+initrd: imagem com a mesma versão do kernel que tem os drivers necessários na memoria, é descompactado antes do kernel. pega esse arquivo, descompacta na memória, subo os drivers da memória e dai descompacta o kernel
+init: primeiro processo do sistema, PID 1, inicia todos os outros processos, systemd
+
+GRUB (configuração)
+serve para fazer manutenção no sistema
+para acessar máquina na vm, pegar o ip da vm
+no terminal: ssh usuário@ip
+cd /boot -> entra no diretório boot, onde tem o grub e o grub2 (geralmente utiliza o grub2, mais atualizado)
+grub.cfg -> nunca mexer nesse arquivo manualmente, só em ultimo caso para recuperar alguma coisa; arquivo central, dita tudo; boas praticas é mexer em outros arquivos de configuração que vão impactar ele
+            os arquivos que podem ser editados para isso:  cd /etc/default/ -> grub; arquivo com variaveis, adicionar parametro e valor
+            /etc/grub.d/ -> nesse diretorio, o update rodado no grub pega todos os arquivos desse dir;

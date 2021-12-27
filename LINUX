@@ -110,3 +110,5 @@ kill -SIGSTOP id - pausar o processo
 kill -SIGCONT id - despausar
 killall nome do processo - matar varios processos com o mesmo nome
 
+processos em background e screen:
+

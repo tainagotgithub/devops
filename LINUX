@@ -36,3 +36,77 @@ cd /boot -> entra no diretório boot, onde tem o grub e o grub2 (geralmente util
 grub.cfg -> nunca mexer nesse arquivo manualmente, só em ultimo caso para recuperar alguma coisa; arquivo central, dita tudo; boas praticas é mexer em outros arquivos de configuração que vão impactar ele
             os arquivos que podem ser editados para isso:  cd /etc/default/ -> grub; arquivo com variaveis, adicionar parametro e valor
             /etc/grub.d/ -> nesse diretorio, o update rodado no grub pega todos os arquivos desse dir;
+
+COMANDOS
+gerenciamento de usuários:
+passwd - trocar a senha do usuário atual
+(sudo) passwd usuário - troca a senha do usuário escolhido
+adduser - adicionar usuários novos (só como root) (cria um novo grupo para o usuário)
+su ... - muda para usuário selecionado (sudo su; su novousuario)
+groupadd - criar novo grupo de usuário
+usermod -aG - pode adicionar usuário em grupos (-aG); entre outras coisas (--help)
+
+criando e mudando de diretório:
+pwd - diretorio que estamos
+mkdir - criar diretório
+mkdir -p - criação de diretórios em cascata
+cd - entrar em diretório
+.. - recuar
+
+copiando, movendo e removendo arquivos:
+cp - copiar arquivos ou diretórios
+cp -rvp - r:recursivo, se tiver subdiretorios copia tbm, tudo mais; v:mostra no seu terminal o que realmente vai ser copiado; p:preserva as permissões
+mv - mover ou renomar
+rm - apagar diretórios ou arquivos
+rmdir -rf - apagar diretórios vazios
+
+visualizando conteúdo dos arquivos:
+cat - ver o que está no arquivo
+head -n(numero de linhas) - ver o cabeçalho
+tail - final do arquivo
+less - facilidade para navegar no arquivo (q volta para o terminal)
+
+localizar e baixar arquivos:
+apt install
+locate (arquivo) - localizar
+grep (palabra) (/var/) -r - localizar pela palavra
+wget - download de qualquer arquivo desde que você passe o caminho completo
+wget -c (+ o caminho)- retoma o download de onde foi interrompido
+
+compressão de arquivos:
+apt install unzip
+unzip - descomprime arquivo 
+unzip -t - visualiza todos os arquivos antes
+unrar - mesma coisa com o rar
+gzip - comprime arquivo
+tar - empacota
+tar -czvf - o c empacota, o z chama o gzip para comprimir, v mostra o que vai fazer parte, f batiza 
+tar -x: descomprime
+tar -t: testa o arquivo para ver se não está comprimido
+
+gerenciamento de rede:
+apt install net-tools
+ifconfig - mostra interfaces de rede
+ifconfig (nome da interface) down - derruba
+ifconfig (nome da interface) up - sobe
+ifconfig (nome da interface) (ip) (netmask)- mudar o ip padrão
+route - mostra as inferfaces padrões das rotas
+route -add net 6666 dev (interface) - adiciona nova rota 
+route add gw default 10.0.2.1 - adicionar gateway
+pode ser considerado um ataque se você não é o dono do servidor - nmap - visualizar portas de serviços abertas
+nmap -sV - qual seriço está na porta
+
+gerenciando processos com ps e top:
+ps - listar processos que o terminal está envolvido
+ps -a - processo que perteçam a outros usuários
+ps -u - mais infos
+ps -x - mostra processos não atrelados ao terminal
+top - monitor em tempo real dos processos (roda até vc destruir)
+
+matando processos:
+& libera o terminal
+kill (ID do processo) - mata o processo
+kill -SIGSTOP id - pausar o processo
+kill -SIGCONT id - despausar
+killall nome do processo - matar varios processos com o mesmo nome
+

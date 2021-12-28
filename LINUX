@@ -111,4 +111,19 @@ kill -SIGCONT id - despausar
 killall nome do processo - matar varios processos com o mesmo nome
 
 processos em background e screen:
+srceen cria um terminal virtual que você pode entrar e sair a qualquer momento
+sudo apt install screen
+screen -S - batiza o terminal e abre
+screen -ls - mostra todos os terminais disponíveis
+screen -r - mata o terminal selecionado
 
+acessando hosts remotos com ssh:
+principalmente servidores rodando em cloud; evolução do telnet
+cntrl c - pode procurar por trechos de comandos que vc já rodou
+ssh user@ip
+
+copiando para hosts remotos com scp:
+copia segura - tunel criptografado
+etc/hosts - mostra os hosts
+echo "" >> etc/hosts - insere o echo no final do arquivo
+scp arquivo destino:diretório - transfere o arquivo (sem nada depois dos :, vai para a home)

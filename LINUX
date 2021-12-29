@@ -127,3 +127,58 @@ copia segura - tunel criptografado
 etc/hosts - mostra os hosts
 echo "" >> etc/hosts - insere o echo no final do arquivo
 scp arquivo destino:diretório - transfere o arquivo (sem nada depois dos :, vai para a home)
+
+como subir serviço de ssh seguro:
+apt install ssh
+roda na porta 22 padrão
+/etc/init.d/ssh start
+/etc/ssh/sshd_config - configurar o serviço
+
+VI:
+editor de texto (nano outra opção)
+vi arquivo.txt - cria o arquivo
+:q - sai do arquivo
+:q! - sair sem salvar
+
+VI - modo de comando e modo de edição:
+: - vai para o rodapé
+i - a letra seguinte vai estar em modo de edição
+esc - volta para modo de comando
+a - próxima letra no modo de edição
+A - te desloca para o fim da linha ao entrar no modo de edição
+o - modo de edição na linha de baixo
+
+VI - numeração de linhas e navegação
+:set nu - habilitar numero de linhas (no rodapé)
+: numero da linha - te desloca para a linha (no rodapé)
+G - ultima linha do documento
+$ - final da linha que você está
+^ - inicio da linha
+
+VI - salvando o arquivo
+:w - salvar
+:wq - salvar e sair
+:x - salvar e sair
+:3,5w outroarquivo.txt - salvando linhas de um arquivo em outro
+
+VI - copiar, colar e apagar textos
+yy - copiar uma unica linha
+p - colar
+4ww - numero de linhas que vc quer copiar + ww - copia as linhas selecionadas
+y$ - da palavra até o final da linha - copiar trechos de linha 
+y^ - da palavra até o inicio da linha
+d - deletar - vc pode substituir o y nos comandos por d, e deletar
+dd - recortar - move o que vc apagou, se vc der p
+U - desfaz o ultimo comando 
+
+VI - localizando e substituindo palavras
+no rodapé
+/palavra que vc ta procurando - procura a palavra
+n - se dirige a proxima ocorrencia da palavra procurada
+N - volta ocorrencias
+:%s/palavra que vc quer localizar/termo que vc quer por no lugar - substituir a primeira palavra
+:%s/palavra que vc quer localizar/termo que vc quer por no lugar/g - substituição global
+:%s/palavra que vc quer localizar/termo que vc quer por no lugar/c - confirmar substituição
+
+gerenciamento de volumes: 
+

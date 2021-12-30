@@ -181,4 +181,13 @@ N - volta ocorrencias
 :%s/palavra que vc quer localizar/termo que vc quer por no lugar/c - confirmar substituição
 
 gerenciamento de volumes: 
+Cada disco rígido, seja HD ou SSD, pendrive, HDexterno  ou  disco  óptico  (CD-ROMs,  DVD-ROMs  ou  Blurays), que podem ser subdividios em várias partes que podem ter sistemas de arquivos em cada um deles, responsável por organizar as informações. a ultima partição pode ser extendida e subdividida. cada subdivisão pode ter seu sistema de arquivos. elas vão ser responsáveis por gerenciar esses arquivos, criar as pastas, diretórios, organizar a info, locais setores e blocos. cada um dos volumes é identificado  com  uma  letra  e  possui  sua  própria  raiz  de  arquivos  e  diretórios,  em sistemas do tipo *nix,esta raiz é única e os diferentes volumes serão “pendurados” nesta árvore no ponto que acharmos mais conveniente.
+FAT - file alocation table; sistema de arquivos mais fácil de ser embarcado, não morre, muito usado; windows
+NTF - new tecnology file system; mais segurança, permissionamentos; arquivos windos so podem ser instalados aqui
+EXT - extended; ext4; linux;
+
+FDISK:
+
+
+
 

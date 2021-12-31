@@ -183,11 +183,36 @@ N - volta ocorrencias
 gerenciamento de volumes: 
 Cada disco rígido, seja HD ou SSD, pendrive, HDexterno  ou  disco  óptico  (CD-ROMs,  DVD-ROMs  ou  Blurays), que podem ser subdividios em várias partes que podem ter sistemas de arquivos em cada um deles, responsável por organizar as informações. a ultima partição pode ser extendida e subdividida. cada subdivisão pode ter seu sistema de arquivos. elas vão ser responsáveis por gerenciar esses arquivos, criar as pastas, diretórios, organizar a info, locais setores e blocos. cada um dos volumes é identificado  com  uma  letra  e  possui  sua  própria  raiz  de  arquivos  e  diretórios,  em sistemas do tipo *nix,esta raiz é única e os diferentes volumes serão “pendurados” nesta árvore no ponto que acharmos mais conveniente.
 FAT - file alocation table; sistema de arquivos mais fácil de ser embarcado, não morre, muito usado; windows
-NTF - new tecnology file system; mais segurança, permissionamentos; arquivos windos so podem ser instalados aqui
+NTFS - new tecnology file system; mais segurança, permissionamentos; arquivos windos so podem ser instalados aqui
 EXT - extended; ext4; linux;
 
 FDISK:
-gerencia os volumes 
+qualquer periférico detectado pelo sistema operacional Linux se torna   um   pseudoarquivo   no   diretório /dev. Geralmente,   discos   rígidos   são identificados como /dev/sd*, sendo /dev/sdao primeiro disco encontrado, /dev/sdbo segundo, assim por diante;
+gerencia os volumes; 
+A numeração “salta” de 2 para 5 pois as partições enumeradas com “1” e “2” são consideradas partições  primárias, enquanto /dev/sda5 é a primeira partição estendida;
+mostrar partições existentes: sudo fdisk /dev/sda p
+cat /etc/mtab | grep sda1: mostra  a  tabela  de  todos  os  volumes  de  armazenamento  ativos  neste momento, juntamente com seus sistemas de arquivos e regras
+Logo  depois  do  dispositivo  (/dev/sda1)  temos  o  que  é  chamado  de  ponto  de montagem, ou  seja,  onde  aquele  volume  está  ativo na raiz  de  arquivos;  a resposta para /dev/sda1 é “/”,ou  seja,  é  a  raiz  de  nossa  árvore  e,  por  esta  razão,  é  o  que deve  ser  montado  primeiro;  todos  os  outros  dispositivos  serão  “pendurados” ou montados na árvore iniciada por /dev/sda1;
+Agora que sabemos mais sobre partições, vamos usar o comando fdisk para criar  duas  partições  em  /dev/sdb.  Para  tal,  comece  com  o  comando sudofdisk /dev/sdbe no menu do comando, digite “n” (de new,  para  criar  uma  partição)  e seguir as instruções;
+mudar de tipo - t depois L
+p - listar partições recem criadas
+w - gravar a nova tabela de pertições e sair
+q - abandona o comando fdisk sem realizar alterações
+
+criar um sistema de arquivos - mkfs:
+o volume sdb  possui duas partições 4GB tipo Linux mas não tem sistema de arquivos que permite criar arquivos ou diretórios, então usamos o mkfs
+sudo mkfs -t ext4 /dev/sdb1 - o -t informa o sistema de arquivo a ser instalado
+sudo mkfs.ext4 /dev/sdb2 - mkfs.ext4 é um atalho para criar o sistema de arquivo
+
+movimentar volumes - mount:
+utilizado  para montar  as  partições  na  raiz  de  diretórios, basta  indicar  a  partição  e o  ponto de  montagem, ou  seja, a  partir  de qual diretório queremos que o volume atue;
+df -h - visualizar  o tamanho dos volumes montados de uma maneira mais amigável;
+mount /dev/sdb1 (origem) /media/novaparticao - faz a montagem
+umount /media/novaparticao - desfaz a montagem
+Quando  queremos  que  certas  partições  sejammontadas  no  boot  do  sistema operacional, basta informá-la no arquivo /etc/fstab: primeira coluna - partição a ser montada; segunda coluna - ponto de montagem; terceira coluna - tipo; quarta coluna - opções (defaults, rx. ro, exec, noexec, suid, noauto, user, owner, no fail); quinta coluna - dump; sexta coluna - ordem de verificação;
+echo "dev/sdb1 /media/novoDisco ext4 defaults 0 0" >> etc/fstab
+
+fsck - verificando um sistema de arquivos:
 
 
 

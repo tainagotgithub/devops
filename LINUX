@@ -213,6 +213,7 @@ Quando  queremos  que  certas  partições  sejammontadas  no  boot  do  sistema
 echo "dev/sdb1 /media/novoDisco ext4 defaults 0 0" >> etc/fstab
 
 fsck - verificando um sistema de arquivos:
+file system check - scam disk no windows
 
 
 
